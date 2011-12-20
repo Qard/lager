@@ -10,8 +10,11 @@
     "node": ">= 0.4.0"
   },
   "dependencies": {
-    "underscore":"*",
-    "colors":"*"
+    "underscore": ">= 1.2.0",
+    "colors": ">= 0.5.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "mocha":">= 0.5.0",
+    "should":">= 0.3.0"
+  }
 }

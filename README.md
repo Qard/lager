@@ -1,8 +1,7 @@
 # Lager
-Simple, pretty and clean logging for node.
+[![Build Status](https://travis-ci.org/Qard/lager.png)](https://travis-ci.org/Qard/lager)
 
-## Requirements
-* Node.js 0.4+
+Simple, pretty and clean logging for node.
 
 ## Install
 

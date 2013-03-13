@@ -1,6 +1,5 @@
 // Load dependencies.
-var  _ = require('underscore')
-  , reporter = require('./lib/reporter')
+var reporter = require('./lib/reporter')
   , utils = require('./lib/utils')
 
 // Add color support.
@@ -18,6 +17,7 @@ function Lager(name) {
     return new Lager(name)
   }
 
+  this.width = 10
   this.indentation = '   '
   this.useTimestamp = false
 
@@ -25,11 +25,14 @@ function Lager(name) {
   if (typeof name === 'string') {
     this.name = name
   } else {
-    _.extend(this, name)
+    for (var key in name) {
+      this[key] = name[key]
+    }
   }
 
-  if (typeof this.indentation !== 'string') {
-    this.indentation = utils.numOfSpace(this.indentation)
+  // Support space count as alternative to raw string
+  if (typeof this.indentation === 'number') {
+    this.indentation = utils.numOfSpaces(this.indentation)
   }
 }
 
@@ -45,7 +48,7 @@ module.exports = Lager
  * @param(s) mixed
  *    Extra info, will be inspected if non-string
  */
-Lager.prototype.log = reporter('log')
+Lager.prototype.log = reporter.type('log')
 
 /**
  * Notice level reporter
@@ -56,7 +59,7 @@ Lager.prototype.log = reporter('log')
  * @param(s) mixed
  *    Extra info, will be inspected if non-string
  */
-Lager.prototype.notice = reporter('info')
+Lager.prototype.notice = reporter.type('info')
 
 /**
  * Error level reporter
@@ -67,4 +70,4 @@ Lager.prototype.notice = reporter('info')
  * @param(s) mixed
  *    Extra info, will be inspected if non-string
  */
-Lager.prototype.error = reporter('error')
+Lager.prototype.error = reporter.type('error')

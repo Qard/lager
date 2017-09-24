@@ -1,4 +1,6 @@
 # Lager
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Qard/lager.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/Qard/lager.png)](https://travis-ci.org/Qard/lager)
 
 Simple, pretty and clean logging for node.
